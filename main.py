@@ -13,6 +13,16 @@ def the_flow() -> None:
         logger.info(f"got value from a_task = {value}")
 
 
+@flow
+def the_another_flow(n: int = 5) -> None:
+    logger = get_run_logger()
+    logger.info(f"hello from the_another_flow, n = {n}")
+    for i in range(n):
+        logger.info(f"iteration {i}")
+        value = a_task()
+        logger.info(f"got value from a_task = {value}")
+
+
 @task
 def a_task() -> int:
     logger = get_run_logger()

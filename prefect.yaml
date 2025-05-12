@@ -33,3 +33,16 @@ deployments:
       work_queue_name: null
       job_variables: {}
     schedules: []
+  - name: second-flow
+    version: null
+    tags: []
+    concurrency_limit: null
+    description: null
+    entrypoint: main.py:the_another_flow
+    parameters: {}
+    work_pool:
+      # name: my-pool
+      name: modal-pool
+      work_queue_name: null
+      job_variables: {}
+    schedules: []
