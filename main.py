@@ -1,6 +1,7 @@
 import random
 
 from prefect import flow, get_run_logger, task
+from prefect.deployments import run_deployment
 
 
 @flow
@@ -21,6 +22,16 @@ def the_another_flow(n: int = 5) -> None:
         logger.info(f"iteration {i}")
         value = a_task()
         logger.info(f"got value from a_task = {value}")
+
+
+@flow
+def flow_sees_flow() -> None:
+    logger = get_run_logger()
+    logger.info("hello from flow_sees_flow")
+    logger.info("calling the-another-flow/second-flow")
+    flow_run = run_deployment(name="the-another-flow/second-flow")
+    logger.info(f"flow_run = {flow_run}")
+    logger.info("waiting for the-another-flow/second-flow to finish?")
 
 
 @task
