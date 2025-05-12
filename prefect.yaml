@@ -20,8 +20,8 @@ deployments:
       work_queue_name: null
       job_variables:
         image:
-          name: "ghcr.io/loamincom/modal-prefect-simplest:latest" # override the container image
-        image_pull_policy: "IF_NOT_PRESENT" # must be one of 'ALWAYS','NEVER','IF_NOT_PRESENT'  [oai_citation:0‡docs-2.prefect.io](https://docs-2.prefect.io/latest/concepts/infrastructure/)
+          name: "ghcr.io/loamincom/modal-prefect-simplest:latest"
+        image_pull_policy: "IF_NOT_PRESENT"
         env:
           GHCR_PAT: "{{ prefect.blocks.secret.ghcr-pat }}"
     schedules: []
@@ -38,8 +38,8 @@ deployments:
       work_queue_name: null
       job_variables:
         image:
-          name: "ghcr.io/loamincom/modal-prefect-simplest:latest" # override the container image
-        image_pull_policy: "IF_NOT_PRESENT" # must be one of 'ALWAYS','NEVER','IF_NOT_PRESENT'  [oai_citation:0‡docs-2.prefect.io](https://docs-2.prefect.io/latest/concepts/infrastructure/)
+          name: "ghcr.io/loamincom/modal-prefect-simplest:latest"
+        image_pull_policy: "IF_NOT_PRESENT"
         env:
           GHCR_PAT: "{{ prefect.blocks.secret.ghcr-pat }}"
     schedules: []
