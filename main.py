@@ -30,15 +30,19 @@ def flow_sees_flow() -> None:
     logger = get_run_logger()
     logger.info("hello from flow_sees_flow")
     logger.info("calling the-another-flow/second-flow")
+    i = 1
     flow_run = run_deployment(name="the-another-flow/second-flow", parameters={"n": i})
     logger.info(f"flow_run = {flow_run}")
     logger.info("waiting for the-another-flow/second-flow to finish?")
+    i = i + 1
     flow_run = run_deployment(name="the-another-flow/second-flow", parameters={"n": i})
     logger.info(f"flow_run = {flow_run}")
     logger.info("waiting for the-another-flow/second-flow to finish?")
+    i = i + 1
     flow_run = run_deployment(name="the-another-flow/second-flow", parameters={"n": i})
     logger.info(f"flow_run = {flow_run}")
     logger.info("waiting for the-another-flow/second-flow to finish?")
+    i = i + 1
     flow_run = run_deployment(name="the-another-flow/second-flow", parameters={"n": i})
     logger.info(f"flow_run = {flow_run}")
     logger.info("waiting for the-another-flow/second-flow to finish?")
