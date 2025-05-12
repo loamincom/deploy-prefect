@@ -14,4 +14,4 @@ COPY uv.lock .
 RUN uv pip install --no-managed-python --requirements pyproject.toml
 
 # 4. Copy the rest of your flow code
-COPY . .
+COPY main.py main.py
