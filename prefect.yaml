@@ -21,7 +21,7 @@ deployments:
     schedules: []
     job_variables:
       image:
-        tag: "ghcr.io/loamincom/modal-prefect-simplest:latest"
+        tag: "ghcr.io/loamincom/modal-prefect-simplest:1"
         secret: github-secret
       image_pull_policy: "IF_NOT_PRESENT"
 
@@ -38,6 +38,6 @@ deployments:
     schedules: []
     job_variables:
       image:
-        tag: "ghcr.io/loamincom/modal-prefect-simplest:latest"
+        tag: "ghcr.io/loamincom/modal-prefect-simplest:1"
         secret: github-secret
       image_pull_policy: "IF_NOT_PRESENT"
