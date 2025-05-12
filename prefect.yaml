@@ -1,8 +1,3 @@
-# Welcome to your prefect.yaml file! You can use this file for storing and managing
-# configuration for deploying your flows. We recommend committing this file to source
-# control along with your flow code.
-
-# Generic metadata about this project
 name: modal-prefect-simplest
 prefect-version: 3.4.1
 
@@ -12,21 +7,25 @@ pull:
   - prefect.deployments.steps.set_working_directory:
       directory: /opt/prefect/app
 
-# the deployments section allows you to provide configuration for deploying flows
 deployments:
   - name: subflow
     version: null
     tags: []
     concurrency_limit: null
     description: This one runs on Modal
-    entrypoint: main.py:subflow
+    entrypoint: main.py:flow_sees_subflow
     parameters: {}
     work_pool:
-      # name: my-pool
       name: modal-pool
       work_queue_name: null
-      job_variables: {}
+      job_variables:
+        image:
+          name: "ghcr.io/loamincom/modal-prefect-simplest:latest" # override the container image
+        image_pull_policy: "IF_NOT_PRESENT" # must be one of 'ALWAYS','NEVER','IF_NOT_PRESENT'  [oai_citation:0‡docs-2.prefect.io](https://docs-2.prefect.io/latest/concepts/infrastructure/)
+        env:
+          GHCR_PAT: "{{ prefect.blocks.secret.ghcr-pat }}"
     schedules: []
+
   - name: main_flow
     version: null
     tags: []
@@ -37,5 +36,10 @@ deployments:
     work_pool:
       name: modal-pool
       work_queue_name: null
-      job_variables: {}
+      job_variables:
+        image:
+          name: "ghcr.io/loamincom/modal-prefect-simplest:latest" # override the container image
+        image_pull_policy: "IF_NOT_PRESENT" # must be one of 'ALWAYS','NEVER','IF_NOT_PRESENT'  [oai_citation:0‡docs-2.prefect.io](https://docs-2.prefect.io/latest/concepts/infrastructure/)
+        env:
+          GHCR_PAT: "{{ prefect.blocks.secret.ghcr-pat }}"
     schedules: []
