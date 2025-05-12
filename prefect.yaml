@@ -14,25 +14,12 @@ pull:
 
 # the deployments section allows you to provide configuration for deploying flows
 deployments:
-  - name: first-flow
-    version: null
-    tags: []
-    concurrency_limit: null
-    description: This one runs on Prefect infra
-    entrypoint: main.py:the_flow
-    parameters: {}
-    work_pool:
-      # name: my-pool
-      name: my-pool
-      work_queue_name: null
-      job_variables: {}
-    schedules: []
-  - name: second-flow
+  - name: subflow
     version: null
     tags: []
     concurrency_limit: null
     description: This one runs on Modal
-    entrypoint: main.py:the_another_flow
+    entrypoint: main.py:subflow
     parameters: {}
     work_pool:
       # name: my-pool
@@ -40,7 +27,7 @@ deployments:
       work_queue_name: null
       job_variables: {}
     schedules: []
-  - name: third-flow
+  - name: main_flow
     version: null
     tags: []
     concurrency_limit: null

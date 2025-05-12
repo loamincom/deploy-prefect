@@ -15,7 +15,7 @@ def the_flow() -> None:
 
 
 @flow
-def the_another_flow(n: int = 5) -> None:
+def subflow(n: int = 5) -> None:
     logger = get_run_logger()
     logger.info(f"hello from the_another_flow, n = {n}")
     for i in range(n):
@@ -29,23 +29,23 @@ def the_another_flow(n: int = 5) -> None:
 def flow_sees_flow() -> None:
     logger = get_run_logger()
     logger.info("hello from flow_sees_flow")
-    logger.info("calling the-another-flow/second-flow")
+    logger.info("calling subflow/subflow")
     i = 1
-    flow_run = run_deployment(name="the-another-flow/second-flow", parameters={"n": i})
+    flow_run = run_deployment(name="subflow/subflow", parameters={"n": i})
     logger.info(f"flow_run = {flow_run}")
-    logger.info("waiting for the-another-flow/second-flow to finish?")
+    logger.info("waiting for subflow/subflow to finish?")
     i = i + 1
-    flow_run = run_deployment(name="the-another-flow/second-flow", parameters={"n": i})
+    flow_run = run_deployment(name="subflow/subflow", parameters={"n": i})
     logger.info(f"flow_run = {flow_run}")
-    logger.info("waiting for the-another-flow/second-flow to finish?")
+    logger.info("waiting for subflow/subflow to finish?")
     i = i + 1
-    flow_run = run_deployment(name="the-another-flow/second-flow", parameters={"n": i})
+    flow_run = run_deployment(name="subflow/subflow", parameters={"n": i})
     logger.info(f"flow_run = {flow_run}")
-    logger.info("waiting for the-another-flow/second-flow to finish?")
+    logger.info("waiting for subflow/subflow to finish?")
     i = i + 1
-    flow_run = run_deployment(name="the-another-flow/second-flow", parameters={"n": i})
+    flow_run = run_deployment(name="subflow/subflow", parameters={"n": i})
     logger.info(f"flow_run = {flow_run}")
-    logger.info("waiting for the-another-flow/second-flow to finish?")
+    logger.info("waiting for subflow/subflow to finish?")
 
 
 @task
