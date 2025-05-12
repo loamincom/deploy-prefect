@@ -6,18 +6,26 @@
 name: modal-prefect-simplest
 prefect-version: 3.4.1
 
-# build section allows you to manage and build docker images
-build: null
+# build your custom image for all deployments (we’ll only run first-flow on Docker)
+build:
+  - prefect_docker.deployments.steps.build_docker_image:
+      id: build-first-flow # reference name for templates
+      requires: prefect-docker>=0.3.0
+      image_name: ghcr.io/loamin/modal-prefect-simplest
+      tag: latest
+      dockerfile: Dockerfile # use your custom Dockerfile
 
-# push section allows you to manage if and how this project is uploaded to remote locations
-push: null
+# push the image to your registry
+push:
+  - prefect_docker.deployments.steps.push_docker_image:
+      requires: prefect-docker>=0.3.0
+      image_name: "{{ build-first-flow.image_name }}"
+      tag: "{{ build-first-flow.tag }}"
 
-# pull section allows you to provide instructions for cloning this project in remote locations
 pull:
   - prefect.deployments.steps.git_clone:
       repository: https://github.com/loamincom/deploy-prefect.git
       branch: main
-
 # the deployments section allows you to provide configuration for deploying flows
 deployments:
   - name: first-flow

@@ -7,5 +7,6 @@ requires-python = ">=3.12"
 dependencies = [
     "modal>=0.75.7",
     "prefect>=3.4.1",
+    "prefect-docker>=0.6.4",
     "prefect-gcp>=0.6.7",
 ]
