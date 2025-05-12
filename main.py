@@ -29,7 +29,9 @@ def flow_sees_flow() -> None:
     logger = get_run_logger()
     logger.info("hello from flow_sees_flow")
     logger.info("calling the-another-flow/second-flow")
-    flow_run = run_deployment(name="the-another-flow/second-flow")
+    for i in range(4):
+        logger.info(f"iteration {i} - calling the-another-flow/second-flow")
+        flow_run = run_deployment(name="the-another-flow/second-flow")
     logger.info(f"flow_run = {flow_run}")
     logger.info("waiting for the-another-flow/second-flow to finish?")
 
