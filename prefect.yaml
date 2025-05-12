@@ -24,12 +24,12 @@ deployments:
     version: null
     tags: []
     concurrency_limit: null
-    description: null
+    description: This one runs on Prefect infra
     entrypoint: main.py:the_flow
     parameters: {}
     work_pool:
       # name: my-pool
-      name: modal-pool
+      name: my-pool
       work_queue_name: null
       job_variables: {}
     schedules: []
@@ -37,8 +37,21 @@ deployments:
     version: null
     tags: []
     concurrency_limit: null
-    description: null
+    description: This one runs on Modal
     entrypoint: main.py:the_another_flow
+    parameters: {}
+    work_pool:
+      # name: my-pool
+      name: modal-pool
+      work_queue_name: null
+      job_variables: {}
+    schedules: []
+  - name: third-flow
+    version: null
+    tags: []
+    concurrency_limit: null
+    description: This one runs on Modal and hopefully calls another `@flow`
+    entrypoint: main.py:flow_sees_flow
     parameters: {}
     work_pool:
       # name: my-pool
