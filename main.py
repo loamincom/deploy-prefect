@@ -22,6 +22,7 @@ def the_another_flow(n: int = 5) -> None:
         logger.info(f"iteration {i}")
         value = a_task()
         logger.info(f"got value from a_task = {value}")
+    return random.randint(1, 100)
 
 
 @flow
