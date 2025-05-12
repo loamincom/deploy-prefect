@@ -1,0 +1,11 @@
+[project]
+name = "modal-prefect-simplest"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "modal>=0.75.7",
+    "prefect>=3.4.1",
+    "prefect-gcp>=0.6.7",
+]
