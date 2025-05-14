@@ -5,7 +5,7 @@ from prefect.deployments import run_deployment
 
 
 @flow
-def flow_sees_subflow(n: int = 5) -> None:
+def flow_sees_subflow(n: int = 5) -> int:
     logger = get_run_logger()
     logger.info(f"hello from flow_sees_subflow, n = {n}")
     for i in range(n):

@@ -8,7 +8,7 @@ pull:
       directory: /opt/prefect/app
 
 deployments:
-  - name: main_flow
+  - name: deployment1
     version: null
     tags: []
     concurrency_limit: null
@@ -18,14 +18,14 @@ deployments:
     work_pool:
       name: modal-pool
       work_queue_name: null
+      job_variables:
+        image:
+          tag: "ghcr.io/loamincom/modal-prefect-simplest:1"
+          secret: github-secret
+        image_pull_policy: "IF_NOT_PRESENT"
     schedules: []
-    job_variables:
-      image:
-        tag: "ghcr.io/loamincom/modal-prefect-simplest:1"
-        secret: github-secret
-      image_pull_policy: "IF_NOT_PRESENT"
 
-  - name: subflow
+  - name: deployment1
     version: null
     tags: []
     concurrency_limit: null
@@ -35,9 +35,9 @@ deployments:
     work_pool:
       name: modal-pool
       work_queue_name: null
+      job_variables:
+        image:
+          tag: "ghcr.io/loamincom/modal-prefect-simplest:1"
+          secret: github-secret
+        image_pull_policy: "IF_NOT_PRESENT"
     schedules: []
-    job_variables:
-      image:
-        tag: "ghcr.io/loamincom/modal-prefect-simplest:1"
-        secret: github-secret
-      image_pull_policy: "IF_NOT_PRESENT"
