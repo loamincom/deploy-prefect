@@ -19,9 +19,9 @@ def flow_sees_subflow(n: int = 5) -> int:
 def flow_sees_flow() -> None:
     logger = get_run_logger()
     logger.info("hello from flow_sees_flow")
-    logger.info("calling flow_sees_subflow/subflow")
+    logger.info("calling flow-sees-subflow/subflow")
     i = 1
-    flow_run = run_deployment(name="flow_sees_subflow/subflow", parameters={"n": i})
+    flow_run = run_deployment(name="flow-sees-subflow/subflow", parameters={"n": i})
     logger.info(f"flow_run = {flow_run}")
     logger.info("waiting for flow_sees_subflow/subflow to finish?")
 
